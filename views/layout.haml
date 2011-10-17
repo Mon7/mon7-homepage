@@ -6,10 +6,8 @@
     %meta{:content => "Mon7.se", :name => "Author"}
     %meta{:content => "Mon7", :name => "Publisher"}
     %meta{:content => "Mon7", :name => "Copyright"}
-    %meta{:content => "5 days", :name => "Revisit-After"}
-    %meta{"HTTP-EQUIV" => "Expires", :content => "no-expire"}
-    %meta{:content => "mon7,it konsulter,it consulting,consulting,konsulter,it system,system utveckling,systemutvecklare,developer,appar,moln system,websystem,it system,dmks,eneas,eneus,sekura,animaldata,verksamhets system", :name => "Keywords"}
-    %meta{:content => "Mon7 Consulting AB - Utvecklar anpassade IT lösningar för din organisation.", :name => "Description"}
+    %meta{:content => "mon7,it konsulter,it consulting,consulting,konsulter,it system,system utveckling,systemutvecklare,developer,appar,moln system,websystem,it system,dmks,eneas,eneus,sekura,animaldata,verksamhetssystem", :name => "Keywords"}
+    %meta{:content => "Mon 7 Consulting AB utvecklar anpassade IT lösningar för er organisation", :name => "Description"}
     %meta{:content => "Software", :name => "Pagetopic"}
     %meta{:content => "Produktinfo", :name => "Pagetype"}
     %meta{:content => "All", :name => "Audience"}
@@ -22,30 +20,19 @@
     %link{:href => "/css/styles.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}
     %link{:href => "/favicon.ico", :rel => "icon", :type => "image/x-icon"}
     %link{:href => "js/slider/css/anythingslider.css", :rel => "stylesheet"}
-
     %script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js", :type => "text/javascript"}
     %script{:src => "/js/slider/js/jquery.anythingslider.min.js"}
     %script{:src => "/js/init.js", :type => "text/javascript"}
-    %script{:async => "", :src => "http://www.google-analytics.com/ga.js", :type => "text/javascript"}  
-    :javascript
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-18633595-1']);
-      _gaq.push(['_trackPageview']);
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
   %body
     .container#hd
       .row.overflow
         .eightcol.last
-          %img#imglogo{:src => "/images/logo.png" , :alt => "Mon7 Consulting AB", :titel => "Mon7 Consulting logo"}
+          %img#imglogo{:src => "/images/logo.png" , :alt => "Mon 7 Consulting AB", :titel => "Mon7 Consulting logo"}
       .row
         .twelvecol.last
           %menu
             -@menu.each do |path, name|
-              %li{}
+              %li
                 %a.button{:class => request.path == path ? :active : nil, :href => path}= name
     .container
       .row.overflow
@@ -54,9 +41,9 @@
         .fourcol.last
           .row#contact
             .twelvecol.last
-              %h2 Ställ en fråga
-              %p Undrar du något om Mon7 Counsulting eller hur vi kan hjälpa dig i ditt projekt? Tveka inte att kontakta oss, vi svarar gärna på dina frågor.
-              %form#contact_form{:method => "GET", :action => "/mail"}
+              %h2 Kontakta oss
+              %p Undrar du något om Mon 7 Consulting eller hur vi kan hjälpa dig i ditt projekt? Tveka inte att kontakta oss, vi svarar gärna på dina frågor.
+              %form#contact_form{:method => :post, :action => "/mail"}
                 .field
                   %label Namn:
                   %input{:name => "name"}
@@ -78,5 +65,15 @@
       .row
         .twelvecol.last
           %p 
-            %a{:href => "http://maps.google.se/maps/place?q=westmansgatan+37+b&hl=sv&ftid=0x46596f15fcdbfa67:0x767fb8760cd9505c"}
-              Mon7 Consulting AB, Westmansgatan 37 b
+            Mon 7 Consulting AB |
+            %a{:href => "http://maps.google.se/maps?q=Mon+7+Consulting+AB,+Westmansgatan+37,+Link%C3%B6ping&hl=sv&ie=UTF8&sll=61.606396,21.225586&sspn=33.039645,92.724609&vpsrc=0&hq=Mon+7+Consulting+AB,&hnear=Westmansgatan+37,+582+16+Link%C3%B6ping,+%C3%96sterg%C3%B6tlands+L%C3%A4n&t=h&z=16"}
+              Westmansgatan 37B 
+    :javascript
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-18633595-1']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();

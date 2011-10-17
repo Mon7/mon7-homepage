@@ -53,7 +53,7 @@ get '/:page' do |page|
 	haml page.to_sym
 end
 
-get '/mail' do
+post '/mail' do
 	subj = "#{params[:subject]} #{params[:company]}" if params[:company]
 	subj = "#{params[:subject]}}" 
 	body = params.inspect

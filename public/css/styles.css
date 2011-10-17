@@ -11,7 +11,8 @@ body {
 }
 p
 {
-	font-family: Arial, sans-serif;
+  font-family: 'Droid sans', Arial, sans-serif;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, .1);
 }
 #hd
 {
