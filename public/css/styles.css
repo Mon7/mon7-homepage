@@ -1,7 +1,6 @@
 /* ============================== */
 /* ! Layout for desktop version   */
 /* ============================== */
-@font-face { font-family: Ubuntu; src: url('/fonts/Ubuntu-Medium.ttf'); }
 
 body {
 	background: whiteSmoke url(/images/7.png);

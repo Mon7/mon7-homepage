@@ -4,10 +4,11 @@ require 'haml'
 require 'mail'
 
 set :haml, :format => :html5, :escape_html => true
-
+set :threaded, true
 configure :production do 
+  set :static_cache_control, [:public, :max_age => 300]
 	before do 
-		cache_control :public, :max_age => 24*3600 
+		cache_control :public, :max_age => 300
 		Mail.defaults do
 			delivery_method :smtp, { 
 				:address        => "smtp.sendgrid.net",
@@ -34,7 +35,7 @@ before do
 	content_type :html, :charset => 'utf-8'
 	@title = "Mon7 Consulting"
 	@menu = [
-		['/', 'Mon7 Consulting'],
+		['/', 'Mon 7 Consulting'],
 		['/projekt', 'Tidigare projekt'],
 		['/tjanster', 'Tjänster'],
 		['/kontakt', 'Kontakt'],
