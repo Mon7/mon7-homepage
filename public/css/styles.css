@@ -4,13 +4,13 @@
 
 body {
 	background: whiteSmoke url(/images/7.png);
-	font-family: 'Ubuntu', arial, sans-serif;
-	color: #444;
+	font-family: Ubuntu, sans-serif;
+	color: #333;
 	overflow-y: scroll;
 }
 p
 {
-  font-family: 'Droid sans', Arial, sans-serif;
+  font-family: 'Droid Sans', sans-serif;
   text-shadow: 0 1px 1px rgba(255, 255, 255, .1);
 }
 #hd
@@ -47,7 +47,6 @@ menu a.button
 	box-shadow:inset 0px 1px 0px 0px #eee;
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #888), color-stop(1, #aaa) );
 	background:-moz-linear-gradient( center top, #aaa 5%, #888 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#aaa', endColorstr='#888');
 	background-color:#aaaaaa;
 	border-radius: 7px 7px 0px 0px;
 	-moz-border-radius: 7px 7px 0px 0px;
@@ -61,7 +60,6 @@ menu a.button:hover
 {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #aaa), color-stop(1, #888) );
 	background:-moz-linear-gradient( center top, #aaa 8%, #888 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#aaa', endColorstr='#888');
 	background-color:#dfdfdf;
 	color: #222;
 }
@@ -69,7 +67,6 @@ menu a.button.active
 {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #888), color-stop(1, #aaa) );
 	background:-moz-linear-gradient( center top, #888 8%, #aaa 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#888', endColorstr='#aaa');
 	background-color:#dfdfdf;
 	color: #222;
 }
@@ -300,7 +297,7 @@ a:hover
 .even
 {
 	color: white;
-	background-color: #333;
+	background-color: #444;
 }
 .padd
 {
@@ -317,10 +314,9 @@ a:hover
 }
 #imglogo
 {
-  width: 60%;
-  position: relative;
-  left: -10%;
-  margin-bottom: 2em;
+  width: 50%;
+  margin-left: -20px;
+  margin-bottom: 1em;
 }
 #logo
 {
