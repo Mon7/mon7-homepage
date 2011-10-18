@@ -27,7 +27,8 @@
     .container#hd
       .row.overflow
         .eightcol.last
-          %img#imglogo{:src => "/images/logo.png" , :alt => "Mon 7 Consulting AB", :titel => "Mon7 Consulting logo"}
+          %a{:href=>'/'}
+            %img#imglogo{:src => "/images/logo.png" , :alt => "Mon 7 Consulting AB", :titel => "Mon7 Consulting logo"}
       .row
         .twelvecol.last
           %menu
@@ -65,7 +66,12 @@
       .row
         .twelvecol.last
           %p 
-            Mon 7 Consulting AB |
+            Mon 7 Consulting AB 
+            |
+            Telefon:
+            %a{:href=>'tel:+46703671120'} +46703671120
+            |
+            Adress:
             %a{:href => "http://maps.google.se/maps?q=Mon+7+Consulting+AB,+Westmansgatan+37,+Link%C3%B6ping&hl=sv&ie=UTF8&sll=61.606396,21.225586&sspn=33.039645,92.724609&vpsrc=0&hq=Mon+7+Consulting+AB,&hnear=Westmansgatan+37,+582+16+Link%C3%B6ping,+%C3%96sterg%C3%B6tlands+L%C3%A4n&t=h&z=16"}
               Westmansgatan 37B 
     :javascript
