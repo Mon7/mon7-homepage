@@ -22,6 +22,15 @@
     %script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js", :type => "text/javascript"}
     %script{:src => "/js/slider/js/jquery.anythingslider.min.js"}
     %script{:src => "/js/init.js", :type => "text/javascript"}
+    :javascript
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-18633595-1']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
   %body
     .container#hd
       .row.overflow
@@ -73,12 +82,3 @@
             Adress:
             %a{:href => "http://maps.google.se/maps?q=Mon+7+Consulting+AB,+Westmansgatan+37,+Link%C3%B6ping&hl=sv&ie=UTF8&sll=61.606396,21.225586&sspn=33.039645,92.724609&vpsrc=0&hq=Mon+7+Consulting+AB,&hnear=Westmansgatan+37,+582+16+Link%C3%B6ping,+%C3%96sterg%C3%B6tlands+L%C3%A4n&t=h&z=16"}
               Westmansgatan 37B 
-    :javascript
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-18633595-1']);
-      _gaq.push(['_trackPageview']);
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
