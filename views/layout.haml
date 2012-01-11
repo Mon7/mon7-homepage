@@ -7,7 +7,7 @@
     %meta{:content => "Mon 7 Consulting AB utvecklar anpassade IT lösningar för er organisation", :name => "Description"}
     / Le HTML5 shim, for IE6-8 support of HTML elements
     /[if lt IE 9]
-      %script{:src => "js/html5shiv.js"}
+      %script{:src => "/js/html5shiv.js"}
     %link{:href => "/css/bootstrap.min.css", :rel => "stylesheet", :type => "text/css"}
     %link{:href => "/css/site.css", :rel => "stylesheet", :type => "text/css"}
     %link{:href => "/favicon.ico", :rel => "icon", :type => "image/x-icon"}
@@ -27,6 +27,14 @@
           .brand Mon 7 Consulting AB
           -#%img#imglogo{:src => "/images/logo.png" , :alt => "Mon 7 Consulting AB", :titel => "Mon7 Consulting logo"}
           %ul.nav
+            %li
+              %a{:href=>'/'} Hem
+            %li
+              %a{:href=>'/projekt.html'} Produkter
+            %li
+              %a{:href=>'/tjanster.html'} Tjänster
+            %li
+              %a{:href=>'/kontakt.html'} Kontakt
             -#@menu.each do |path, name|
               %li{:class => request.path == path ? :active : nil}
                 %a{:href => path}= name
@@ -42,25 +50,3 @@
           Adress:
           %a{:href => "http://maps.google.se/maps?q=Mon+7+Consulting+AB,+Westmansgatan+37,+Link%C3%B6ping&hl=sv&ie=UTF8&sll=61.606396,21.225586&sspn=33.039645,92.724609&vpsrc=0&hq=Mon+7+Consulting+AB,&hnear=Westmansgatan+37,+582+16+Link%C3%B6ping,+%C3%96sterg%C3%B6tlands+L%C3%A4n&t=h&z=16"}
             Westmansgatan 37 B, 582 16 Linköping
-        -#.fourcol.last
-          .row#contact
-            .twelvecol.last
-              %h2 Kontakta oss
-              %p Undrar du något om Mon 7 Consulting eller hur vi kan hjälpa dig i ditt projekt? Tveka inte att kontakta oss, vi svarar gärna på dina frågor.
-              %form#contact_form{:method => :post, :action => "/mail"}
-                .field
-                  %label Namn:
-                  %input{:name => "name"}
-                .field
-                  %label Företag:
-                  %input{:name => "company"}
-                .field
-                  %label Telefon:
-                  %input{:name => "tel"}
-                .field
-                  %label E-post:
-                  %input{:name => "email"}
-                .field
-                  %input{:type => "hidden",:name => "subject",:value => "[Mon7 callme request]"}
-                  %button{:type => "submit"}
-                    Kontakta mig!

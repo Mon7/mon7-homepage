@@ -1,6 +1,7 @@
 require 'haml'
 require 'aws'
 
+desc 'Render all haml files and copy public files to output'
 task :render => :clean do
   haml_options = {:format => :html5, :escape_html => true}
   haml_layout = File.read('views/layout.haml')
@@ -21,10 +22,12 @@ task :render => :clean do
   FileUtils.cp_r 'public/.', 'output'
 end
 
+desc 'Remove output folder'
 task :clean do
-  FileUtils.rm_rf 'output'
+  FileUtils.rm_rf 'output/*'
 end
 
+desc 'Sync output with s3 bucket www.mon7.se'
 task :upload => :render do
   s3 = AWS::S3.new(YAML.load(File.read('aws.yml')))
   objects = s3.buckets['www.mon7.se'].objects
