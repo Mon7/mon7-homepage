@@ -1,4 +1,4 @@
-source "http://rubygems.org"
+source :rubygems
 
 gem "sinatra"
 gem "haml"
@@ -11,6 +11,6 @@ group :development do
 end
 
 group :test do
-	gem "capybara"
 	gem "rspec"
+	gem "capybara"
 end

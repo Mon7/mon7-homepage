@@ -3,25 +3,14 @@
   %head
     %meta{:charset=>"utf-8"}
     %title= @title
-    %meta{:content => "Mon7.se", :name => "Author"}
-    %meta{:content => "Mon7", :name => "Publisher"}
-    %meta{:content => "Mon7", :name => "Copyright"}
     %meta{:content => "mon7,it konsulter,it consulting,consulting,konsulter,it system,system utveckling,systemutvecklare,developer,appar,moln system,websystem,it system,dmks,eneas,eneus,sekura,animaldata,verksamhetssystem", :name => "Keywords"}
     %meta{:content => "Mon 7 Consulting AB utvecklar anpassade IT lösningar för er organisation", :name => "Description"}
-    %meta{:content => "Software", :name => "Pagetopic"}
-    %meta{:content => "Produktinfo", :name => "Pagetype"}
-    %meta{:content => "Svenska, Swedish", :name => "Content-Language"}
-    %link{:href => "/css/1140.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}
-    /[if lte IE 9]
-      %link{:href => "/css/ie.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}
-    %link{:href => "http://fonts.googleapis.com/css?family=Droid+Sans:400,700", :rel => "stylesheet", :type => "text/css"}
-    %link{:href => "http://fonts.googleapis.com/css?family=Ubuntu", :rel => "stylesheet", :type => "text/css"}
-    %link{:href => "/css/styles.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}
+    / Le HTML5 shim, for IE6-8 support of HTML elements
+    /[if lt IE 9]
+      %script{:src => "/js/html5.js"}
+    %link{:href => "/css/bootstrap.min.css", :rel => "stylesheet", :type => "text/css"}
+    %link{:href => "/css/site.css", :rel => "stylesheet", :type => "text/css"}
     %link{:href => "/favicon.ico", :rel => "icon", :type => "image/x-icon"}
-    %link{:href => "/js/slider/css/anythingslider.css", :rel => "stylesheet"}
-    %script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js", :type => "text/javascript"}
-    %script{:src => "/js/slider/js/jquery.anythingslider.min.js"}
-    %script{:src => "/js/init.js", :type => "text/javascript"}
     :javascript
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-18633595-1']);
@@ -32,22 +21,28 @@
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
   %body
-    .container#hd
-      .row.overflow
-        .eightcol.last
-          %a{:href=>'/'}
-            %img#imglogo{:src => "/images/logo.png" , :alt => "Mon 7 Consulting AB", :titel => "Mon7 Consulting logo"}
-      .row
-        .twelvecol.last
-          %menu
+    .topbar
+      .fill
+        .container
+          .brand Mon 7 Consulting AB
+          -#%img#imglogo{:src => "/images/logo.png" , :alt => "Mon 7 Consulting AB", :titel => "Mon7 Consulting logo"}
+          %ul.nav
             -@menu.each do |path, name|
-              %li
-                %a.button{:class => request.path == path ? :active : nil, :href => path}= name
+              %li{:class => request.path == path ? :active : nil}
+                %a{:href => path}= name
     .container
-      .row.overflow
-        .eightcol#bd
-          !=yield
-        .fourcol.last
+      !=yield
+      %footer
+        %p 
+          Mon 7 Consulting AB 
+          |
+          Telefon:
+          %a{:href=>'tel:+46703671120'} +46703671120
+          |
+          Adress:
+          %a{:href => "http://maps.google.se/maps?q=Mon+7+Consulting+AB,+Westmansgatan+37,+Link%C3%B6ping&hl=sv&ie=UTF8&sll=61.606396,21.225586&sspn=33.039645,92.724609&vpsrc=0&hq=Mon+7+Consulting+AB,&hnear=Westmansgatan+37,+582+16+Link%C3%B6ping,+%C3%96sterg%C3%B6tlands+L%C3%A4n&t=h&z=16"}
+            Westmansgatan 37 B, 582 16 Linköping
+        -#.fourcol.last
           .row#contact
             .twelvecol.last
               %h2 Kontakta oss
@@ -69,16 +64,3 @@
                   %input{:type => "hidden",:name => "subject",:value => "[Mon7 callme request]"}
                   %button{:type => "submit"}
                     Kontakta mig!
-    .line-break
-    .container#ft
-      .row
-        .twelvecol.last
-          %p 
-            Mon 7 Consulting AB 
-            |
-            Telefon:
-            %a{:href=>'tel:+46703671120'} +46703671120
-            |
-            Adress:
-            %a{:href => "http://maps.google.se/maps?q=Mon+7+Consulting+AB,+Westmansgatan+37,+Link%C3%B6ping&hl=sv&ie=UTF8&sll=61.606396,21.225586&sspn=33.039645,92.724609&vpsrc=0&hq=Mon+7+Consulting+AB,&hnear=Westmansgatan+37,+582+16+Link%C3%B6ping,+%C3%96sterg%C3%B6tlands+L%C3%A4n&t=h&z=16"}
-              Westmansgatan 37B 
