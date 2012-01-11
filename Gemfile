@@ -1,16 +1,3 @@
-source "http://rubygems.org"
-
-gem "sinatra"
+source :rubygems
 gem "haml"
-gem "mail"
-
-group :production do 
-end
-
-group :development do
-end
-
-group :test do
-	gem "capybara"
-	gem "rspec"
-end
+gem "aws-sdk"

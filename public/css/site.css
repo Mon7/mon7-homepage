@@ -1,0 +1,12 @@
+body {
+  padding-top: 60px;
+}
+p, address {
+  font-size: 1.1em;
+}
+.contact-img {
+  width: 100%;
+  border: solid 1px #aaa;
+  border-radius: 5px;
+  padding: 3px;
+}
