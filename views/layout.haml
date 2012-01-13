@@ -8,6 +8,8 @@
     / Le HTML5 shim, for IE6-8 support of HTML elements
     /[if lt IE 9]
       %script{:src => "/js/html5shiv.js"}
+    %link{:href => "http://fonts.googleapis.com/css?family=Ruda", :rel => "stylesheet", :type => "text/css"}
+    %link{:href=>'http://fonts.googleapis.com/css?family=Magra', :rel=>'stylesheet', :type=>'text/css'}
     %link{:href => "/css/bootstrap.min.css", :rel => "stylesheet", :type => "text/css"}
     %link{:href => "/css/site.css", :rel => "stylesheet", :type => "text/css"}
     %link{:href => "/favicon.ico", :rel => "icon", :type => "image/x-icon"}
@@ -22,24 +24,19 @@
       })();
   %body
     .topbar
-      .fill
-        .container
-          .brand Mon 7 Consulting AB
-          -#%img#imglogo{:src => "/images/logo.png" , :alt => "Mon 7 Consulting AB", :titel => "Mon7 Consulting logo"}
-          %ul.nav
-            %li
-              %a{:href=>'/'} Hem
-            %li
-              %a{:href=>'/projekt.html'} Produkter
-            %li
-              %a{:href=>'/tjanster.html'} Tjänster
-            %li
-              %a{:href=>'/kontakt.html'} Kontakt
-            -#@menu.each do |path, name|
-              %li{:class => request.path == path ? :active : nil}
-                %a{:href => path}= name
+      .container
+        .brand Mon 7 Consulting AB
+        %ul.nav
+          %li{:class=>name=='index' ? :active : ''}
+            %a{:href=>'/'} Hem
+          %li{:class=>name=='projekt' ? :active : ''}
+            %a{:href=>'/projekt.html',} Produkter
+          %li{:class=>name=='tjanster' ? :active : ''}
+            %a{:href=>'/tjanster.html'} Tjänster
+          %li{:class=>name=='kontakt' ? :active : ''}
+            %a{:href=>'/kontakt.html'} Kontakt
+    !=yield
     .container
-      !=yield
       %footer
         %p 
           Mon 7 Consulting AB 

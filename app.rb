@@ -4,12 +4,12 @@ require 'haml'
 
 set :haml, :format => :html5, :escape_html => true
 get '/' do
-  haml :index
+  haml :index, :locals =>{:name => 'index'}
 end
 
 get '/:page.html' do |page|
   pass unless File.exists? "./views/#{page}.haml"
-  haml page.to_sym
+  haml page.to_sym, :locals => {:name => page}
 end
 
 not_found do

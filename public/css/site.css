@@ -1,12 +1,36 @@
 body {
   padding-top: 60px;
+  font-family: 'Ruda', sans-serif;
 }
-p, address {
-  font-size: 1.1em;
+.topbar {
+  background-color: #3C4764
 }
 .contact-img {
   width: 100%;
   border: solid 1px #aaa;
   border-radius: 5px;
   padding: 3px;
+}
+.index-background {
+  background-color: whiteSmoke;
+  background-image: url(/images/groovepaper.png);
+  margin: -40px auto 20px;
+  padding-top: 40px;
+}
+.index-section {
+  background-image: url(/images/index-header.png);
+  background-repeat: no-repeat;
+  background-position: center 0px;
+  height: 350px;
+}
+.btn.index {
+  font-size: 1.8em;
+  margin-top: 5px;
+}
+footer {
+  text-align: center;
+  color: #999;
+}
+footer a {
+  color: #A1D69A;
 }

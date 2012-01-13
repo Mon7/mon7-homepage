@@ -13,7 +13,7 @@ task :render => :clean do
 
     haml_view = File.read(f)
     view = Haml::Engine.new(haml_view, haml_options)
-    html = layout.to_html do
+    html = layout.to_html(Object.new, {:name=>name}) do
       view.to_html
     end
     File.open("output/#{name}.html", 'w+') {|o| o.write html}
