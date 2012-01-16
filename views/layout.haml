@@ -29,12 +29,14 @@
         %ul.nav
           %li{:class=>name=='index' ? :active : ''}
             %a{:href=>'/'} Hem
-          %li{:class=>name=='projekt' ? :active : ''}
-            %a{:href=>'/projekt.html',} Produkter
           %li{:class=>name=='tjanster' ? :active : ''}
             %a{:href=>'/tjanster.html'} Tjänster
+          %li{:class=>name=='projekt' ? :active : ''}
+            %a{:href=>'/projekt.html',} Produkter
           %li{:class=>name=='kontakt' ? :active : ''}
             %a{:href=>'/kontakt.html'} Kontakt
+          %li{:class=>name=='metoder' ? :active : ''}
+            %a{:href=>'/metoder.html'} Metoder
     !=yield
     .container
       %footer

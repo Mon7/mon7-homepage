@@ -1,6 +1,10 @@
 require 'haml'
 require 'aws'
 
+task :start do
+  exec 'ruby app.rb'
+end
+
 desc 'Render all haml files and copy public files to output'
 task :render => :clean do
   haml_options = {:format => :html5, :escape_html => true}
