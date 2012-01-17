@@ -1,5 +1,6 @@
 require 'haml'
 require 'aws'
+require 'mime/types'
 
 task :start do
   exec 'ruby app.rb'
@@ -10,7 +11,6 @@ task :render => :clean do
   haml_options = {:format => :html5, :escape_html => true}
   haml_layout = File.read('views/layout.haml')
   layout = Haml::Engine.new(haml_layout, haml_options)
-  FileUtils.mkdir_p 'output'
   Dir['views/*.haml'].each do |f|
     name = File.basename(f, '.haml')
     next if name == 'layout'
@@ -26,9 +26,10 @@ task :render => :clean do
   FileUtils.cp_r 'public/.', 'output'
 end
 
-desc 'Remove output folder'
+desc 'Recreate the output folder'
 task :clean do
-  FileUtils.rm_rf 'output/*'
+  FileUtils.rm_rf 'output'
+  FileUtils.mkdir_p 'output'
 end
 
 desc 'Sync output with s3 bucket www.mon7.se'
@@ -37,11 +38,16 @@ task :upload => :render do
   objects = s3.buckets['www.mon7.se'].objects
   Dir['output/**/*'].each do |f|
     next if File.directory? f
-    objects[f.sub(/output\//,'')].write(File.read f)
+    ct = MIME::Types.of(f).first
+    puts "Uploading: #{f} Content-type: #{ct}"
+    objects[f.sub(/output\//,'')].write(:file => f, :content_type => ct)
   end
   objects.each do |obj|
     unless File.exists? "output/#{obj.key}"
       obj.delete
+      puts "deleted: #{obj.key}"
+    else
+      puts "exists: output/#{obj.key}"
     end
   end
 end
