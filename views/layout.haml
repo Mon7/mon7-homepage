@@ -4,9 +4,11 @@
     %meta{:charset=>"utf-8"}
     %title= @title || 'Mon 7 Consulting AB'
     %meta{:content => "Mon 7 Consulting AB utvecklar anpassade IT lösningar för er organisation", :name => "Description"}
+    %script{:src => "/js/jquery-1.7.1.min.js"}
     / Le HTML5 shim, for IE6-8 support of HTML elements
     /[if lt IE 9]
       %script{:src => "/js/html5shiv.js"}
+    %script{:src => "/js/bootstrap.min.js"}
     %link{:href => "http://fonts.googleapis.com/css?family=Ruda:400,700", :rel => "stylesheet", :type => "text/css"}
     %link{:href => "/css/bootstrap.min.css", :rel => "stylesheet", :type => "text/css"}
     %link{:href => "/css/site.css", :rel => "stylesheet", :type => "text/css"}
@@ -21,20 +23,22 @@
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
   %body
-    .topbar
-      .container
-        .brand Mon 7 Consulting AB
-        %ul.nav
-          %li{:class=>name=='index' ? :active : ''}
-            %a{:href=>'/'} Hem
-          %li{:class=>name=='tjanster' ? :active : ''}
-            %a{:href=>'/tjanster.html'} Tjänster
-          %li{:class=>name=='projekt' ? :active : ''}
-            %a{:href=>'/projekt.html',} Produkter
-          %li{:class=>name=='kontakt' ? :active : ''}
-            %a{:href=>'/kontakt.html'} Kontakt
-          %li{:class=>name=='metoder' ? :active : ''}
-            %a{:href=>'/metoder.html'} Metoder
+    #hd.container
+      .row
+        .span4
+          %img{src: '/images/mon7_logo.png', alt: 'Mon 7 Consulting AB'}
+        .span8
+          %ul.nav.nav-pills#main-nav
+            %li{:class=>name=='index' ? :active : ''}
+              %a{:href=>'/'} Hem
+            %li{:class=>name=='tjanster' ? :active : ''}
+              %a{:href=>'/tjanster.html'} Tjänster
+            %li{:class=>name=='projekt' ? :active : ''}
+              %a{:href=>'/projekt.html',} Produkter
+            %li{:class=>name=='kontakt' ? :active : ''}
+              %a{:href=>'/kontakt.html'} Kontakt
+            %li{:class=>name=='metoder' ? :active : ''}
+              %a{:href=>'/metoder.html'} Metoder
     !=yield
     .container
       %footer

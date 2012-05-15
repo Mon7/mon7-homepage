@@ -1,4 +1,4 @@
-.index-background
+-#.index-background
   .container.index-section
     .row
       .span-two-thirds
@@ -10,7 +10,7 @@
           %br
           %small Specialutvecklar IT-system för just er verksamhet
       .span-one-third
-        %a.btn.success.large.index{ :href => '/kontakt.html'} Beställ ett system idag!
+        %a.btn.btn-success.large.index{ :href => '/kontakt.html'} Beställ ett system idag!
         -#.well{:style=>'background: white'}
           %p Vi utför IT konsulttjänster till privata företag och offentlig förvaltning. Genom stor lyhördhet för våra kundernas behov kan kostnadseffektiva, skräddarsydda administrativasystem utvecklas, till våra kunder. Vi tillhandahåller drift och underhåll av servrar. Förtroende och pålitlighet är ledord i vår relation till våra kunderna.
       -#.span8
@@ -18,14 +18,25 @@
           %img{:src => '/images/mon7office.png', :width=>'100%'}
 .container
   .row
-    .span-one-third
+    .span12
+      %h1 Specialutvecklar IT-system för just er verksamhet
+      %br
+  .row
+    .span4
+      %img{src: '/img/icon_dev.png', alt: 'Systemutveckling'}
+    .span4
+      %img{src: '/img/icon_coffee.png', alt: 'Effektivisering'}
+    .span4
+      %img{src: '/img/icon_server.png', alt: 'Infrastruktur'}
+  .row
+    .span4
       %h2 Systemutveckling
       %p Vi utför kundanpassad systemutveckling. Med ett litet men specialiserat team av spetsutvecklare kan vi skapa väldigt avancerade system på kort tid.
 
-    .span-one-third
+    .span4
       %h2 Effektivisering
       %p Vi är experter på att identifiera och implementera effektivseringsmöjligheter som IT system kan möjligöra inom organisationer.
-    .span-one-third
+    .span4
       %h2 Infrastruktur
       %p Vi har lång erfarenhet av drift och underhåll av affärskritiska system. 
       -#%a.btn.primary{:href=>'#'} Läs mer

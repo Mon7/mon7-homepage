@@ -1,9 +1,27 @@
-body {
-  padding-top: 60px;
-  font-family: 'Trebuchet MS', 'Ruda', sans-serif;
+body, p {
+  font-family:  'Ruda', 'Trebuchet MS',sans-serif;
 }
+
+a {
+  color: #04354D;
+}
+a:hover {
+  color: #FF4300;
+}
+
+#hd {
+  padding: 2em 0;
+}
+.nav-pills > .active > a,
+.nav-pills > .active > a:hover {
+  background-color: #04354D;
+}
+
 .topbar {
   background-color: #3C4764
+}
+#main-nav {
+  margin: 3em;
 }
 .contact-img {
   width: 100%;
