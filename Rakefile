@@ -36,18 +36,28 @@ desc 'Sync output with s3 bucket www.mon7.se'
 task :upload => :render do
   s3 = AWS::S3.new(YAML.load(File.read('aws.yml')))
   objects = s3.buckets['www.mon7.se'].objects
-  Dir['output/**/*'].each do |f|
-    next if File.directory? f
+  files = Dir['output/**/*'].select{ |f| File.file? f }
+
+  objects.each do |obj|
+    if f = files.find {|f| f == "output/#{obj.key}" }
+      md5 = Digest::MD5.file(f).to_s
+      if not obj.etag[1..-2] == md5
+        ct = MIME::Types.of(f).first
+        puts "Updating: #{f} Content-type: #{ct}"
+        objects[f.sub(/output\//,'')].write(:file => f, :content_type => ct)
+      else
+        puts "Not changed: #{f}"
+      end
+      files.delete f
+    else
+      obj.delete
+      puts "deleted: #{obj.key}"
+    end
+  end
+
+  files.each do |f|
     ct = MIME::Types.of(f).first
     puts "Uploading: #{f} Content-type: #{ct}"
     objects[f.sub(/output\//,'')].write(:file => f, :content_type => ct)
-  end
-  objects.each do |obj|
-    unless File.exists? "output/#{obj.key}"
-      obj.delete
-      puts "deleted: #{obj.key}"
-    else
-      puts "exists: output/#{obj.key}"
-    end
   end
 end
