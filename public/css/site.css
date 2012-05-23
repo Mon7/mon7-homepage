@@ -1,5 +1,9 @@
 body, p {
-  font-family:  'Ruda', 'Trebuchet MS',sans-serif;
+  /*font-family:  'Ruda', 'Trebuchet MS',sans-serif;*/
+  font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Trebuchet MS','Lucida Sans Unicode', 'Lucida Grande', sans-serif;
 }
 
 a {
