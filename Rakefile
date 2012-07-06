@@ -2,6 +2,7 @@ require 'haml'
 require 'aws'
 require 'mime/types'
 
+desc 'Start the preview application'
 task :start do
   exec 'ruby app.rb'
 end
